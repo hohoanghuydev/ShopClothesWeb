@@ -1,0 +1,82 @@
+﻿@model List<HoHoangHuy_WebShop.Models.SanPham>
+@{
+    ViewBag.Title = "Áo sơ mi";
+}
+@{
+    int next = ViewBag.Page + 1;
+    int pre = ViewBag.Page - 1;
+    if (next > ViewBag.NoOfPages)
+    {
+        next = ViewBag.NoOfPages;
+    }
+    if (pre < 1)
+    {
+        pre = 1;
+    }
+}
+<div class="p-4">
+    <h2>Áo Sơ mi</h2>
+</div>
+<div class="row m-0">
+    <div class="col-md-3 d-flex">
+        <img width="20" height="20" src="https://img.icons8.com/ios/50/filter--v1.png" alt="filter--v1" />
+        <h4>Bộ lọc</h4>
+    </div>
+    <div class="col-md-3">
+        <div class="dropdown">
+            <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
+                Sắp xếp theo giá
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                <li><a class="dropdown-item" href="/SanPham/Shirt?Sort=Gia&Icon=fa fa-sort-up&page=1">Tăng dần</a></li>
+                <li><a class="dropdown-item" href="/SanPham/Shirt?Sort=Gia&Icon=fa fa-sort-down&page=1">Giảm dần</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="dropdown">
+            <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenu3" data-bs-toggle="dropdown" aria-expanded="false">
+                Sắp xếp sản phẩm (a-z)
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenu3">
+                <li><a class="dropdown-item" href="/SanPham/Shirt?Sort=TenSanPham&Icon=fa fa-sort-up&page=1">Tăng dần</a></li>
+                <li><a class="dropdown-item" href="/SanPham/Shirt?Sort=TenSanPham&Icon=fa fa-sort-down&page=1">Giảm dần</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="row my-3 g-2 p-2 m-0">
+    @foreach (var item in Model)
+    {
+        <div class="col-xxl-2 col-md-3 col-6">
+            <div class="card border-0" style="width: 100%;">
+                @if (item.HinhAnh != "")
+                {
+                    <img src="~/Images/@item.HinhAnh" class="card-img-top rounded" alt="Ao thun den">
+                }
+                else
+                {
+                    <img src="~/Images/noimage.jpg" class="card-img-top rounded" alt="Ao thun den" />
+                }
+                <div class="card-body">
+                    <h5 class="card-title"><a href="/SanPham/Detail/@item.MaSanPham" class="stretched-link text-dark text-decoration-none">@item.TenSanPham</a></h5>
+                    <p class="card-text"><strong>@Html.DisplayFor(row => item.Gia) </strong></p>
+                </div>
+            </div>
+            <a href="/GioHang/AddToCart/@item.MaSanPham" class="btn btn-primary">Mua ngay</a>
+        </div>
+    }
+</div>
+<div class="container d-flex justify-content-center">
+    <nav aria-label="Page navigation example">
+        <ul class="pagination">
+            <li class="page-item"><a class="page-link text-dark" href="/SanPham/Shirt?Search=@ViewBag.Search&Sort=@ViewBag.Sort&Icon=@ViewBag.Icon&page=@pre">Previous</a></li>
+            @for (int i = 0; i < ViewBag.NoOfPages; i++)
+            {
+                <li class="page-item"><a class="page-link text-dark" href="/SanPham/Shirt?Search=@ViewBag.Search&Sort=@ViewBag.Sort&Icon=@ViewBag.Icon&page=@(i + 1)">@(i + 1)</a></li>
+            }
+            <li class="page-item"><a class="page-link text-dark" href="/SanPham/Shirt?Search=@ViewBag.Search&Sort=@ViewBag.Sort&Icon=@ViewBag.Icon&page=@next">Next</a></li>
+        </ul>
+    </nav>
+</div>
+

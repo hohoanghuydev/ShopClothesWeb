@@ -1,0 +1,44 @@
+﻿@model HoHoangHuy_WebShop.Models.SanPham
+@{
+    ViewBag.Title = "Edit";
+}
+
+<div class="container mx-auto p-5">
+    <h2>Sửa sản phẩm @Model.MaSanPham</h2>
+    @using (Html.BeginForm("Edit", "SanPham", FormMethod.Post, new { area = "Admin", enctype = "multipart/form-data" }))
+    {
+        <input type="hidden" name="MaSanPham" value="@Model.MaSanPham" />
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                @Html.LabelFor(row => row.MaLoaiSP, "Mã loại sản phảm")
+                @Html.DropDownListFor(row => row.MaLoaiSP, new SelectList(ViewBag.LoaiSP, "MaLoaiSP", "TenLoaiSP"), Model.LoaiSanPham.TenLoaiSP, new { @class = "form-control" })
+                @Html.ValidationMessageFor(row => row.MaLoaiSP)
+            </div>
+            <div class="col-md-6 mb-3">
+                @Html.LabelFor(row => row.TenSanPham, "Tên sản phảm")
+                @Html.TextBoxFor(row => row.TenSanPham, new { @class = "form-control", value = Model.TenSanPham })
+                @Html.ValidationMessageFor(row => row.TenSanPham)
+            </div>
+            <div class="col-md-6 mb-3">
+                @Html.LabelFor(row => row.Gia, "Giá sản phảm")
+                @Html.TextBoxFor(row => row.Gia, new { @class = "form-control", value = Model.Gia })
+                @Html.ValidationMessageFor(row => row.Gia)
+            </div>
+            <div class="col-md-6 mb-3">
+                @Html.LabelFor(row => row.HinhAnh, "Hình ảnh sản phẩm")
+                <input type="file" name="fileImage" id="fileImage" class="form-control" value="@Model.HinhAnh"/>
+                @Html.ValidationMessageFor(row => row.HinhAnh, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-12 mb-3">
+                @Html.LabelFor(row => row.MoTa, "Mô tả")
+                @Html.TextAreaFor(row => row.MoTa, new { @class = "form-control", value = Model.MoTa, rows = "10" })
+                @Html.ValidationMessageFor(row => row.MoTa)
+            </div>
+            <div class="col-md-6 mb-3">
+                <button type="submit" class="btn btn-dark">Sửa</button>
+                @Html.ActionLink("Trở lại trang chủ", "Index", "SanPham", new { @class = "btn btn-light", area = "Admin" })
+            </div>
+        </div>
+    }
+</div>
+

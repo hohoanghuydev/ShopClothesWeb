@@ -1,0 +1,56 @@
+﻿@model HoHoangHuy_WebShop.ViewModel.RegisterVM
+@{
+    ViewBag.Title = "Register";
+}
+
+<div style="width: 500px;" class="mx-auto my-5">
+    <h2>Register</h2>
+    @using (Html.BeginForm("Register", "Account", FormMethod.Post))
+    {
+        <div class="row g-2">
+            <div class="col-12">
+                @Html.LabelFor(row => row.Name)
+                @Html.TextBoxFor(row => row.Name, new { @class = "form-control", placeholder = "Name" })
+                @Html.ValidationMessageFor(row => row.Name,"", new {@class = "text-danger" })
+            </div>
+            <div class="col-12">
+                @Html.LabelFor(row => Model.UserName)
+                @Html.TextBoxFor(row => Model.UserName, new { @class = "form-control", placeholder = "UserName" })
+                @Html.ValidationMessageFor(row => Model.UserName, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-12">
+                @Html.LabelFor(row => Model.Password)
+                @Html.PasswordFor(row => Model.Password, new { @class = "form-control", placeholder = "Password" })
+                @Html.ValidationMessageFor(row => Model.Password, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-12">
+                @Html.LabelFor(row => Model.ComfirmPassword)
+                @Html.PasswordFor(row => Model.ComfirmPassword, new { @class = "form-control", placeholder = "ComfirmPassword" })
+                @Html.ValidationMessageFor(row => Model.ComfirmPassword, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-12">
+                @Html.LabelFor(row => Model.Email)
+                @Html.TextBoxFor(row => Model.Email, new { @class = "form-control", placeholder = "Email" })
+                @Html.ValidationMessageFor(row => Model.Email, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-12">
+                @Html.LabelFor(row => Model.PhoneNumber)
+                @Html.TextBoxFor(row => Model.PhoneNumber, new { @class = "form-control", placeholder = "PhoneNumber" })
+                @Html.ValidationMessageFor(row => Model.PhoneNumber, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-12">
+                @Html.LabelFor(row => Model.DateOfBirth)
+                @Html.TextBoxFor(row => Model.DateOfBirth, new { @class = "form-control", placeholder = "DateOfBirth", type = "date" })
+                @Html.ValidationMessageFor(row => Model.DateOfBirth, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-12">
+                @Html.LabelFor(row => Model.Address)
+                @Html.TextBoxFor(row => Model.Address, new { @class = "form-control", placeholder = "Address" })
+                @Html.ValidationMessageFor(row => Model.Address, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-12">
+                <button type="submit" class="btn btn-dark">Register</button>
+            </div>
+        </div>
+    }
+</div>

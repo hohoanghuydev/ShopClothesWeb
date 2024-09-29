@@ -1,0 +1,36 @@
+﻿@model HoHoangHuy_WebShop.Identity.AppUser
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="p-3">
+    <h2>Thông tin khách hàng</h2>
+    <table class="table table-borderless mb-3">
+        <tr>
+            <th>Tên tài khoản</th>
+            <td>@Model.UserName</td>
+        </tr>
+        <tr>
+            <th>Họ tên</th>
+            <td>@Model.Name</td>
+        </tr>
+        <tr>
+            <th>Ngày sinh</th>
+            <td>@Model.NgaySinh</td>
+        </tr>
+        <tr>
+            <th>Email</th>
+            <td>@Model.Email</td>
+        </tr>
+        <tr>
+            <th>Số điện thoại</th>
+            <td>@Model.PhoneNumber</td>
+        </tr>
+        <tr>
+            <th>Địa chỉ</th>
+            <td>@Model.Address</td>
+        </tr>
+    </table>
+    <a href="/Home/" class="btn btn-light">Quay lại trang chủ</a>
+</div>
+

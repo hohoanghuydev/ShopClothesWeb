@@ -1,0 +1,40 @@
+﻿@model HoHoangHuy_WebShop.Models.SanPham
+@{
+    ViewBag.Title = "Detail";
+}
+<div class="container mx-auto p-3">
+    <h2>Chi tiết sản phẩm @Model.TenSanPham</h2>
+    <table class="table">
+        <tr>
+            <th class="w-25">Hình ảnh sản phẩm</th>
+            <td>
+                @if (Model.HinhAnh != "")
+                {
+                    <img src="~/Images/@Model.HinhAnh"width="300"/>
+                }
+                else
+                {
+                    <img src="~/Images/noimage.png" width="300"/>
+                }
+            </td>
+        </tr>
+        <tr>
+            <th class="w-25">Mã sản phẩm</th>
+            <td class="w-75">@Model.MaSanPham</td>
+        </tr>
+        <tr>
+            <th class="w-25">Tên sản phẩm</th>
+            <td>@Model.TenSanPham</td>
+        </tr>
+        <tr>
+            <th class="w-25">Giá sản phẩm</th>
+            <td>@Html.DisplayFor(row => Model.Gia)</td>
+        </tr>
+        <tr>
+            <th class="w-25">Mô tả</th>
+            <td>@Model.MoTa</td>
+        </tr>
+    </table>
+    <a href="/Admin/SanPham/Index" class="btn btn-light">Trở lại trang chủ</a>
+</div>
+

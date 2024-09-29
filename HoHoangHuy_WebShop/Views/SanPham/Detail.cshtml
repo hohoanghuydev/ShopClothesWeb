@@ -1,0 +1,112 @@
+﻿@model HoHoangHuy_WebShop.Models.SanPham
+@{
+    ViewBag.Title = "Chi tiết sản phẩm";
+}
+<script>
+    var i = 0
+    $(document).ready(function () {
+        $(".minus").click(function () {
+            if (i > 0)
+                i--;
+            $(".num").text(i)
+        })
+        $(".plus").click(function () {
+            i++;
+            $(".num").text(i)
+        })
+    })
+</script>
+<div class="container mt-3 mb-5" >
+    <div class="row m-0">
+        <div class="col-lg-6 d-flex">
+            <div class="list-img p-0" style="width: 20%;">
+                <ul class="p-0" style="list-style: none;">
+                    <li class="nav-item border my-3" style="height: 100px; width: 100px;">
+                        <a href="#">
+                            <img src="~/Images/@Model.HinhAnh"
+                                 alt="" class="mw-100 mh-100 active" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" aria-current="true" aria-label="Slide 1">
+                        </a>
+                    </li>
+                    <li class="nav-item border my-3" style="height: 100px; width: 100px;">
+                        <a href="#">
+                            <img src="~/Images/bang-size.jpg"
+                                 alt="" class="mw-100 mh-100" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2">
+                        </a>
+                    </li>
+                    <li class="nav-item border my-3" style="height: 100px; width: 100px;">
+                        <a href="#">
+                            <img src="~/Images/doi-tra.jpg"
+                                 alt="" class="mw-100 mh-100" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" style="width: 80%;">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="~/Images/@Model.HinhAnh" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="~/Images/bang-size.jpg" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="~/Images/doi-tra.jpg" class="d-block w-100" alt="...">
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                        data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                        data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+        <div class="col-lg-6 col-sm-12 col-xs-12 d-flex-col">
+            <h3 class=""><b>@Model.TenSanPham</b></h3>
+            <h3 class="text-danger"><b>@Html.DisplayFor(row => Model.Gia)</b></h3>
+            <form action="/GioHang/AddToCart/" method="get">
+                <input type="hidden" value="@Model.MaSanPham" name="id" />
+                <div class="my-2 d-flex">
+                    <p class="me-3 my-auto">SIZE:</p>
+                    <input type="radio" class="btn btn-check" name="kichThuoc" value="S" id="size1">
+                    <label for="size1" class="btn btn-outline-dark me-2">S</label>
+
+                    <input type="radio" class="btn btn-check" name="kichThuoc" value="M" id="size2">
+                    <label for="size2" class="btn btn-outline-dark me-2">M</label>
+
+                    <input type="radio" class="btn btn-check" name="kichThuoc" value="L" id="size3">
+                    <label for="size3" class="btn btn-outline-dark me-2">L</label>
+
+                    <input type="radio" class="btn btn-check" name="kichThuoc" value="XL" id="size4">
+                    <label for="size4" class="btn btn-outline-dark me-2">XL</label>
+
+                    <input type="radio" class="btn btn-check" name="kichThuoc" value="XXL" id="size5">
+                    <label for="size5" class="btn btn-outline-dark me-2">XXL</label>
+                </div>
+                <hr>
+                <div class="d-flex my-2 ">
+                    <input type="number" name="soLuong" id="soLuong" min="1" class="form-control" style="width: 58px" value="1" />
+                    <div class="mx-3">
+                        <button type="submit" class="btn btn-dark rounded-1 px-4">Mua hàng</button> @*style="padding: 12.35px;" mx-3 px-4*@
+                    </div>
+                </div>
+            </form>
+            <div class="mt-5">
+                <h6 class="my-3"><b>Hướng dẫn bảo quản sản phẩm</b></h6>
+                <p class="mb-1">Giặt ở nhiệt độ bình thường, với đồ có màu tương tự.</p>
+                <p class="mb-1">Không dùng hóa chất tẩy lên sản phẩm</p>
+                <p class="mb-1">Bạn nên giặt tay và LỘN NGƯỢC ÁO trước khi giặt.</p>
+                <p class="mb-1">Không ủi trực tiếp lên hình in.</p>
+                <p class="mb-1">
+                    Hạn chế sử dụng máy sấy và ủi (nếu có) chỉ nên ủi lên vải hoặc sử dụng bàn ủi
+                    hơi nước ở nhiệt độ thích hợp.
+                </p>
+                <p>@Model.MoTa</p>
+            </div>
+        </div>
+    </div>
+</div>

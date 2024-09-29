@@ -1,0 +1,41 @@
+﻿@model List<HoHoangHuy_WebShop.Identity.AppUser>
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="p-3">
+    <div class="pt-2 mb-2">
+        <a href="/Admin/Account/Create/" class="btn btn-dark">Thêm tài khoản</a>
+    </div>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>UserName</th>
+                <th>Tên</th>
+                <th>Email</th>
+                <th>Số điện thoại</th>
+                <th>Ngày sinh</th>
+                <th>Địa chỉ</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.UserName</td>
+                    <td>@item.Name</td>
+                    <td>@item.Email</td>
+                    <td>@item.PhoneNumber</td>
+                    <td>@item.NgaySinh</td>
+                    <td>@item.Address</td>
+                    <td>
+                        <a href="#" class="text-dark" style="text-decoration: none">Sửa</a>
+                        <a href="/Admin/Account/Delete/@item.Id" class="text-dark" style="text-decoration: none">Xóa</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+

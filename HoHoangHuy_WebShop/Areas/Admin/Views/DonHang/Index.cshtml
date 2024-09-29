@@ -1,0 +1,38 @@
+﻿@model List<HoHoangHuy_WebShop.Models.DonHang>
+@{
+    ViewBag.Title = "Đơn hàng";
+}
+
+<div class="p-3">
+    <table class="table">
+        <tr>
+            <th>Mã đơn hàng</th>
+            <th>Sản phẩm</th>
+            <th>Số lượng</th>
+            <th>Tổng tiền</th>
+            <th>Ngày đặt hàng</th>
+            <th>Trạng thái</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <th>@item.MaDonHang</th>
+                <th>@item.SanPham.TenSanPham</th>
+                <th>@item.SoLuong</th>
+                <th>@Html.DisplayFor(row => item.TongTien)</th>
+                <th>@Html.DisplayFor(row => item.NgayDat)</th>
+                <th>
+                    @if (item.TrangThaiThanhToan == 0)
+                    {
+                        <p>Chưa thanh toán</p>
+                    }
+                    else
+                    {
+                        <p>Đã thanh toán</p>
+                    }
+                </th>
+            </tr>
+        }
+    </table>
+</div>
+

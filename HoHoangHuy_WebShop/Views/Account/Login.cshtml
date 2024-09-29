@@ -1,0 +1,30 @@
+﻿@model HoHoangHuy_WebShop.ViewModel.LoginVM
+
+@{
+    ViewBag.Title = "Login";
+}
+
+<div style="width: 500px;" class="mx-auto my-5">
+    <h2>Login</h2>
+    @using (Html.BeginForm("Login", "Account", FormMethod.Post))
+    {
+        <div class="row g-2">
+            <div class="col-12">
+                @Html.LabelFor(row => Model.UserName)
+                @Html.TextBoxFor(row => Model.UserName, new { @class = "form-control", placeholder = "UserName" })
+                @Html.ValidationMessageFor(row => Model.UserName, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-12">
+                @Html.LabelFor(row => Model.Password)
+                @Html.PasswordFor(row => Model.Password, new { @class = "form-control", placeholder = "Password" })
+                @Html.ValidationMessageFor(row => Model.Password, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-12 text-danger" style="list-style: none">
+                @Html.ValidationSummary()
+            </div>
+            <div class="col-12">
+                <button type="submit" class="btn btn-dark">Login</button>
+            </div>
+        </div>
+    }
+</div>

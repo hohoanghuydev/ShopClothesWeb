@@ -1,0 +1,32 @@
+﻿@model List<HoHoangHuy_WebShop.Models.LoaiSanPham>
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="p-3">
+    <h2>Loại sản phẩm</h2>
+    <button type="button" class="btn btn-outline-dark" id="loadCategories">Lấy danh sách loại sản phẩm</button>
+    <table class="table table-hover" id="tableLoaiSP">
+        <tr>
+            <th>Mã loại sản phẩm</th>
+            <th>Tên loại sản phẩm</th>
+        </tr>
+    </table>
+</div>
+<script>
+    $('#loadCategories').click(() => {
+        $.ajax({
+            type: 'GET',
+            url: '/api/products',
+            success: (response) => {
+                for (var i = 0; i <= response.length; i++) {
+                    const loaiSP = response[i];
+                    const strHTML = '<tr><td>' + loaiSP.MaLoaiSP + '</td><td>' + loaiSP.TenLoaiSP + '</td></tr>';
+                    $('#tableLoaiSP').append(strHTML);
+                }
+            },
+            error: (err) => { console.log(err); }
+        });
+    });
+</script>
+

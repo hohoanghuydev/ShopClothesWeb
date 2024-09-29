@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewBag.Title</title>
+    <meta charset="UTF-8">
+    <link href="~/Content/bootstrap.css" rel="stylesheet"/>
+    <script src="~/Scripts/bootstrap.js"></script>
+    <script src="~/Scripts/jquery-3.7.1.js"></script>
+</head>
+<body>
+    <div class="container-fluid p-0">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="/Admin/Home/">
+                    <img src="https://www.coolmate.me/images/logo-coolmate-new.svg?v=1"
+                         alt="" style="max-width: 100%; height: auto; margin: 5px auto; width: 70px">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active text-white" aria-current="page" href="/Admin/Home/">Trang chủ</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="/Admin/SanPham/">Sản phẩm</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="/Admin/DonHang/">Đơn hàng</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="/Admin/Account/">Tài khoản</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="/Admin/LoaiSanPham/">Loại sản phẩm</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        @RenderBody()
+        <div class="footer row text-white bg-dark p-3 m-0">
+            <div class="row col-md-12">
+                <div class="col-md-4">
+                    <h3>COOLMATE lắng nghe bạn!</h3>
+                    <p>
+                        Chúng tôi luôn trân trọng và mong đợi nhận được mọi ý kiến
+                        đóng góp từ khách hàng để có thể nâng cấp trải nghiệm dịch vụ và sản phẩm tốt hơn nữa.
+                    </p>
+                </div>
+                <div class="col-md-4">
+                    Hotline <br>
+                    1900.7777.4444 - 028.9876.2627 <br>
+                    (8:30 - 22:30)
+                    <br>
+                    Email <br>
+                    MyClotheStore@meomeo.me
+                </div>
+                <div class="col-md-4">
+                    <a href="#"><img width="70" height="70" src="https://img.icons8.com/ios-filled/50/zalo.png" alt="zalo" /></a>
+                    <a href="#"><img width="70" height="70" src="https://img.icons8.com/ios/50/facebook--v1.png" alt="facebook--v1" /></a>
+                    <a href="#"><img width="70" height="70" src="https://img.icons8.com/ios/50/instagram-new--v1.png" alt="instagram-new--v1" /></a>
+                </div>
+            </div>
+            <hr>
+            <div class="row col-md-12">
+                <div class="col-md-3">
+                    MyClotheClub
+                    <p>Đăng ký thành viên</p>
+                    <p>Ưu đãi & Đặc quyền</p>
+                </div>
+                <div class="col-md-3">
+                    CHÍNH SÁCH
+                    <p>Chính sách đổi trả 60 ngày</p>
+                    <p>Chính sách khuyến mãi</p>
+                    <p>Chính sách bảo mật</p>
+                    <p>Chính sách giao hàng</p>
+                </div>
+                <div class="col-md-3">
+                    CHĂM SÓC KHÁCH HÀNG
+                    <p>Trải nghiệm mua sắm 100% hài lòng</p>
+                    <p>Hỏi đáp - FAQs</p>
+                </div>
+                <div class="col-md-3">
+                    ĐỊA CHỈ LIÊN HỆ
+                    <p>Văn phòng my clothe: 123 đường chân trời, tỉnh như mơ, thành phố Không Tên</p>
+                </div>
+            </div>
+            <hr>
+            <div class="infoDev col-md-12 text-center">Design by Hồ Hoàng Huy</div>
+        </div>
+    </div>
+</body>
+</html>

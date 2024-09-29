@@ -1,0 +1,43 @@
+﻿@model HoHoangHuy_WebShop.Models.SanPham
+@{
+    ViewBag.Title = "Create";
+}
+
+<div class="container mx-auto p-5">
+    <h2>Thêm sản phẩm mới</h2>
+    @using (Html.BeginForm("Create", "SanPham", FormMethod.Post, new { area = "Admin", enctype = "multipart/form-data" }))
+    {
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                @Html.LabelFor(model => model.MaLoaiSP, "Loại sản phẩm")
+                @Html.DropDownListFor(model => model.MaLoaiSP, new SelectList(ViewBag.LoaiSP, "MaLoaiSP", "TenLoaiSP"), "Chọn loại sản phẩm...", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.MaLoaiSP, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-6 mb-3">
+                @Html.LabelFor(model => model.TenSanPham, "Tên sản phẩm")
+                @Html.TextBoxFor(model => model.TenSanPham, new { @class = "form-control", placeholder = "Tên sản phẩm" })
+                @Html.ValidationMessageFor(model => model.TenSanPham, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-6 mb-3">
+                @Html.LabelFor(model => model.Gia, "Giá sản phẩm")
+                @Html.TextBoxFor(model => model.Gia, new { @class = "form-control", placeholder = "Giá sản phẩm" })
+                @Html.ValidationMessageFor(model => model.Gia, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-6 mb-3">
+                @Html.LabelFor(model => model.HinhAnh, "Hình ảnh sản phẩm")
+                <input type="file" name="fileImage" id="fileImage" class="form-control" value=""/>
+                @Html.ValidationMessageFor(model => model.HinhAnh, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-12 mb-3">
+                @Html.LabelFor(model => model.MoTa, "Mô tả sản phẩm")
+                @Html.TextAreaFor(model => model.MoTa, new { @class = "form-control", placeholder = "Mô tả sản phẩm", rows = "10" })
+                @Html.ValidationMessageFor(model => model.MoTa, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-12 mb-3">
+                <button type="submit" class="btn btn-dark">Thêm sản phẩm</button>
+                @Html.ActionLink("Trở lại trang chủ", "Index", "SanPham", new { @class = "btn btn-light", area = "Admin" })
+            </div>
+        </div>
+    }
+</div>
+
